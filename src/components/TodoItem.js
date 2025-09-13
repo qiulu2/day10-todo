@@ -2,11 +2,18 @@ import {useContext} from "react";
 import {TodoContext} from "../contexts/TodoContext";
 
 export function TodoItem(props) {
-    const {state, dispatch} = useContext(TodoContext);
+    const {dispatch} = useContext(TodoContext);
 
     function makeAsDone() {
         dispatch({
             type: "TOGGLE_TODO",
+            payload: {id: props.todo.id}
+        })
+    }
+
+    function deleteTodo() {
+        dispatch({
+            type: "DELETE_TODO",
             payload: {id: props.todo.id}
         })
     }
@@ -17,5 +24,6 @@ export function TodoItem(props) {
               onClick={makeAsDone}>
         {props.todo.text}
         </span>
+        <button className="delete-btn" onClick={deleteTodo}>×</button>
     </div>
 }
