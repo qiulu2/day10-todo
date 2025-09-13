@@ -4,10 +4,7 @@ import {todoReducer} from "./reducers/TodoReducer";
 import {TodoGroup} from "./components/TodoGroup";
 import {TodoContext} from "./contexts/TodoContext";
 
-export const initState = [
-    {id: 1, text: "the first todo", done: false},
-    {id: 2, text: "the second todo", done: true},
-];
+export const initState = [];
 
 
 function App() {
