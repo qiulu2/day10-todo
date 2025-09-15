@@ -1,53 +1,54 @@
 import {Link} from "react-router";
+import {Card, Typography, Space, Button} from 'antd';
+import {ArrowLeftOutlined} from '@ant-design/icons';
+
+const {Title, Paragraph} = Typography;
 
 export function AboutUsPage() {
     return (
-        <div className="about-page">
-            <div className="about-container">
-                <h1>About Todo App</h1>
+        <div style={{padding: '20px'}}>
+            <Space direction="vertical" size="middle" style={{width: '100%'}}>
+                <Card>
+                    <Title level={1}>📝 About Todo App</Title>
+                    <Paragraph>Your simple todo list manager</Paragraph>
+                </Card>
 
-                <section className="about-section">
-                    <h2>📝 What is this app?</h2>
-                    <p>
-                        This is a modern Todo application built with React 19 and React Router 7.
-                        It helps you organize your daily tasks efficiently and keep track of your productivity.
-                    </p>
-                </section>
+                <Card>
+                    <Title level={2}>What is this app?</Title>
+                    <Paragraph>
+                        This is a simple Todo application built with React.
+                        It helps you manage your daily tasks.
+                    </Paragraph>
+                </Card>
 
-                <section className="about-section">
-                    <h2>✨ Features</h2>
+                <Card>
+                    <Title level={2}>Features</Title>
                     <ul>
-                        <li>✅ Add new tasks quickly</li>
-                        <li>✅ Mark tasks as completed</li>
-                        <li>✅ Edit task details</li>
-                        <li>✅ Delete unwanted tasks</li>
-                        <li>✅ View completed tasks separately</li>
-                        <li>✅ Responsive design for all devices</li>
+                        <li>Add new tasks</li>
+                        <li>Mark tasks as completed</li>
+                        <li>Edit tasks</li>
+                        <li>Delete tasks</li>
+                        <li>View completed tasks</li>
                     </ul>
-                </section>
+                </Card>
 
-                <section className="about-section">
-                    <h2>🛠 Technology Stack</h2>
+                <Card>
+                    <Title level={2}>Built with</Title>
                     <ul>
-                        <li><strong>Frontend:</strong> React 19, React Router 7</li>
-                        <li><strong>UI Library:</strong> Ant Design</li>
-                        <li><strong>HTTP Client:</strong> Axios</li>
-                        <li><strong>Backend API:</strong> MockAPI</li>
-                        <li><strong>State Management:</strong> React Context + useReducer</li>
+                        <li>React</li>
+                        <li>Ant Design</li>
+                        <li>React Router</li>
                     </ul>
-                </section>
+                </Card>
 
-                <section className="about-section">
-                    <h2>👨‍💻 Developer</h2>
-                    <p>Built with ❤️ as a learning project to demonstrate modern React development practices.</p>
-                </section>
-
-                <div className="about-actions">
-                    <Link to="/" className="back-to-app-btn">
-                        Back to Todo App
-                    </Link>
-                </div>
-            </div>
+                <Card>
+                    <Button type="primary" icon={<ArrowLeftOutlined />}>
+                        <Link to="/" style={{color: 'inherit', textDecoration: 'none'}}>
+                            Back to TodoList
+                        </Link>
+                    </Button>
+                </Card>
+            </Space>
         </div>
     );
 }
