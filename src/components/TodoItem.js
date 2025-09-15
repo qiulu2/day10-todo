@@ -1,6 +1,7 @@
 import {useContext} from "react";
 import {TodoContext} from "../contexts/TodoContext";
 import {useNavigate} from "react-router";
+import {api} from "../api/mockApi";
 
 
 
@@ -8,7 +9,7 @@ export function TodoItem(props) {
     const {dispatch} = useContext(TodoContext);
     const navigate = useNavigate();
 
-    const {todo, shouwDetailBtn = true} = props;
+    const {todo, showDetailBtn = true} = props;
 
     function makeAsDone() {
         dispatch({
@@ -18,10 +19,11 @@ export function TodoItem(props) {
     }
 
     function deleteTodo() {
-        dispatch({
-            type: "DELETE_TODO",
-            payload: {id: props.todo.id}
-        })
+        // DELETE api/{id}
+        api.delete("/todos/" + props.todo.id)
+            .then(res => res.data)
+            .then(todo => dispatch({type: "DELETE_TODO", payload: todo}));
+
     }
 
     function detailTodo() {
@@ -36,7 +38,7 @@ export function TodoItem(props) {
         </span>
         <button className="delete-btn" onClick={deleteTodo}>❌</button>
         {
-            shouwDetailBtn &&(<button className="detail-btn" onClick={detailTodo}>👀</button>)
+            showDetailBtn &&(<button className="detail-btn" onClick={detailTodo}>👀</button>)
         }
 
     </div>
