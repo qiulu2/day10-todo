@@ -3,14 +3,14 @@ import {TodoContext} from "../contexts/TodoContext";
 import {useNavigate} from "react-router";
 import {useTodoService} from "../useTodoService";
 import {Card, Button, Space, Typography} from 'antd';
-import {DeleteOutlined, EyeOutlined, CheckCircleOutlined, ClockCircleOutlined} from '@ant-design/icons';
+import {DeleteOutlined, EyeOutlined, CheckCircleOutlined, ClockCircleOutlined, EditOutlined} from '@ant-design/icons';
 
 const {Text} = Typography;
 
 export function TodoItem(props) {
     const {dispatch} = useContext(TodoContext);
     const navigate = useNavigate();
-    const {showDetailBtn = true} = props;
+    const {showDetailBtn = true, showEditBtn = false, onEdit} = props;
     const {updateDone, deleteTodo} = useTodoService()
 
     function handleUpdateTodo() {
@@ -86,6 +86,22 @@ export function TodoItem(props) {
                     {props.todo.text}
                 </Text>
                 <Space size="small" style={{flexShrink: 0}}>
+                    {showEditBtn && onEdit && (
+                        <Button
+                            type="text"
+                            icon={<EditOutlined />}
+                            onClick={onEdit}
+                            size="middle"
+                            style={{
+                                width: '36px',
+                                height: '36px',
+                                borderRadius: '8px',
+                                backgroundColor: '#fff7e6',
+                                border: '1px solid #ffd666',
+                                color: '#fa8c16'
+                            }}
+                        />
+                    )}
                     {showDetailBtn && (
                         <Button
                             type="text"

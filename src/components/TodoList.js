@@ -15,7 +15,6 @@ export function TodoList() {
                     image={Empty.PRESENTED_IMAGE_SIMPLE}
                     style={{padding: '40px 0'}}
                 >
-                    <p style={{color: '#666', margin: 0}}>Add your first task!</p>
                 </Empty>
             ) : (
                 <div>

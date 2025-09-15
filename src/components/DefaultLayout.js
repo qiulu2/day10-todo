@@ -5,7 +5,6 @@ import {
     CheckCircleOutlined,
     InfoCircleOutlined
 } from '@ant-design/icons';
-import "../css/DefaultLayout.css";
 
 const {Header, Content} = Layout;
 
