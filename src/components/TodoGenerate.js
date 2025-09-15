@@ -1,7 +1,10 @@
 import {useContext, useState} from "react";
 import {TodoContext} from "../contexts/TodoContext";
-import {type} from "@testing-library/user-event/dist/type";
 import {api} from "../api/mockApi";
+
+const addTodos = (inputText) => {
+    return api.post("/todos", {text: inputText.trim(), done: false});
+}
 
 export function TodoGenerate() {
     const {dispatch} = useContext(TodoContext);
@@ -10,7 +13,7 @@ export function TodoGenerate() {
     function addTodo(e) {
         e.preventDefault();
         if (inputText.trim()) {
-            api.post("/todos", {text: inputText.trim(), done: false})
+            addTodos(inputText)
                 .then(res => res.data)
                 .then(todo => dispatch({type: "ADD_TODO", payload: todo}));
             setInputText("");
