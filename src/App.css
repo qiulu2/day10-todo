@@ -95,3 +95,12 @@
 .add-btn:active {
   transform: translateY(1px);
 }
+
+.navBar{
+    background-color: #007bff;
+    padding: 10px 0;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
