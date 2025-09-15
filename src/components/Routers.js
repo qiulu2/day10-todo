@@ -2,7 +2,7 @@ import {createBrowserRouter} from "react-router";
 import {DefaultLayout} from "./DefaultLayout";
 import {ErrorPage} from "../ErrorPage/ErrorPage";
 import {HomePage} from "../page/HomePage";
-import {TodoDetailPage} from "./TodoDetailPage";
+import {TodoDetailPage} from "../page/TodoDetailPage";
 import {DoneList} from "./DoneList";
 
 export let routers = createBrowserRouter([
