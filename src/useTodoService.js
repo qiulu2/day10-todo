@@ -5,6 +5,10 @@ export function useTodoService() {
         return api.put("/todos/" + props.todo.id, {done: !props.todo.done});
     }
 
+    const updateTodo = (id, todoData) => {
+        return api.put("/todos/" + id, todoData);
+    }
+
     const deleteTodo = (props) => {
         return api.delete("/todos/" + props.todo.id);
     }
@@ -18,5 +22,5 @@ export function useTodoService() {
     }
 
 
-    return {updateDone, deleteTodo, getTodos, addTodos};
+    return {updateDone, deleteTodo, getTodos, addTodos, updateTodo};
 }

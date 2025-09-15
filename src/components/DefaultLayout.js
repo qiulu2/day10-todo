@@ -18,16 +18,6 @@ export function DefaultLayout() {
                                 Home
                             </NavLink>
                         </li>
-                        {/*<li>*/}
-                        {/*    <NavLink*/}
-                        {/*        to="/todos/1"*/}
-                        {/*        className={({isActive}) =>*/}
-                        {/*            `navLink ${isActive ? "navLink--active" : ""}`*/}
-                        {/*        }*/}
-                        {/*    >*/}
-                        {/*        TodoList*/}
-                        {/*    </NavLink>*/}
-                        {/*</li>*/}
                         <li>
                             <NavLink
                                 to="/donelist"
