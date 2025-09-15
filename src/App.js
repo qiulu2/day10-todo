@@ -7,13 +7,17 @@ import {routers} from "./components/Routers";
 import {api} from "./api/mockApi";
 
 
+const getTodos = () => {
+    return api.get('/todos');
+}
+
 function App() {
     const [state, dispatch] = useReducer(todoReducer, []);
 
     useEffect(() => {
-        api.get('/todos')
+         getTodos()
             .then(response => response.data)
-            .then(todos => dispatch({type: "LOAD_TODOS", payload: todos}))
+            .then(todos => dispatch({type: "LOAD_TODOS", payload: todos}));
     }, [dispatch]);
 
     return (

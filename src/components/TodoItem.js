@@ -4,6 +4,13 @@ import {useNavigate} from "react-router";
 import {api} from "../api/mockApi";
 
 
+const todoDone = (props) => {
+    return api.put("/todos/" + props.todo.id, {done: !props.todo.done});
+}
+
+const DeleteTodo = (props) => {
+    return api.delete("/todos/" + props.todo.id);
+}
 
 export function TodoItem(props) {
     const {dispatch} = useContext(TodoContext);
@@ -11,19 +18,16 @@ export function TodoItem(props) {
     const {todo, showDetailBtn = true} = props;
 
     function makeAsDone() {
-        // PUT api/{id} {done: !todo.done}
-        api.put("/todos/" + props.todo.id, {done: !props.todo.done})
+        todoDone(props)
             .then(res => res.data)
             .then(todo =>  dispatch({
                 type: "TOGGLE_TODO",
                 payload: {id: props.todo.id},
             }));
-
     }
 
     function deleteTodo() {
-        // DELETE api/{id}
-        api.delete("/todos/" + props.todo.id)
+        DeleteTodo(props)
             .then(res => res.data)
             .then(todo => dispatch({type: "DELETE_TODO", payload: todo}));
 
