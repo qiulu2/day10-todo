@@ -1,6 +1,5 @@
 import {useContext, useState} from "react";
 import {TodoContext} from "../contexts/TodoContext";
-import {api} from "../api/mockApi";
 import {useTodoService} from "../useTodoService";
 
 export function TodoGenerate() {
