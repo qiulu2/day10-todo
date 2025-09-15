@@ -1,6 +1,10 @@
 import {useContext} from "react";
 import {TodoContext} from "../contexts/TodoContext";
 
+function detailTodo() {
+
+}
+
 export function TodoItem(props) {
     const {dispatch} = useContext(TodoContext);
 
@@ -24,6 +28,7 @@ export function TodoItem(props) {
               onClick={makeAsDone}>
         {props.todo.text}
         </span>
-        <button className="delete-btn" onClick={deleteTodo}>×</button>
+        <button className="delete-btn" onClick={deleteTodo}>❌</button>
+        <button className="detail-btn" onClick={detailTodo}>👀</button>
     </div>
 }

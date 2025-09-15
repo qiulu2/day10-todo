@@ -48,14 +48,23 @@
 }
 
 .delete-btn {
-  border-radius: 4px;
+  border-radius: 20px;
   border: none;
-  width: 24px;
-  height: 24px
+  width: 30px;
+  height: 30px
+}
+.detail-btn{
+  border-radius: 20px;
+  border: none;
+  width: 30px;
+  height: 30px
+}
+.detail-btn:hover {
+  background-color: #08cbfc;
 }
 
 .delete-btn:hover {
-  background-color: #ff3742;
+  background-color: #08fcd7;
 }
 
 .input-section {
