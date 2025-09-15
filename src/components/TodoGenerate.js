@@ -1,16 +1,14 @@
 import {useContext, useState} from "react";
 import {TodoContext} from "../contexts/TodoContext";
 import {api} from "../api/mockApi";
-
-const addTodos = (inputText) => {
-    return api.post("/todos", {text: inputText.trim(), done: false});
-}
+import {useTodoService} from "../useTodoService";
 
 export function TodoGenerate() {
     const {dispatch} = useContext(TodoContext);
     const [inputText, setInputText] = useState("");
+    const {addTodos} = useTodoService();
 
-    function addTodo(e) {
+    function handleAddTodo(e) {
         e.preventDefault();
         if (inputText.trim()) {
             addTodos(inputText)
@@ -26,7 +24,7 @@ export function TodoGenerate() {
 
     function handleKeyDown(e) {
         if (e.key === 'Enter') {
-            addTodo();
+            handleAddTodo();
         }
     }
 
@@ -39,7 +37,7 @@ export function TodoGenerate() {
                 onKeyDown={handleKeyDown}
                 className="todo-input"
             />
-            <button onClick={addTodo} className="add-btn">
+            <button onClick={handleAddTodo} className="add-btn">
                 Add
             </button>
         </div>
