@@ -7,13 +7,13 @@ export function DoneList() {
     const todo = state.filter((todo) => todo.done === true)
     if (todo.length > 0) {
         return <div>
-            <h1>done:</h1>
+            <h2>✅</h2>
             {todo.map((item) => {
                 return <TodoItem todo={item} key={item.id}/>;
             })}
         </div>
     }
     return <div>
-        <h1>none done todo</h1>
+        <h2>none done todo</h2>
     </div>;
 }
