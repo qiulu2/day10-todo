@@ -1,10 +1,10 @@
 import {useReducer} from "react";
 import "./App.css"
 import {todoReducer} from "./reducers/TodoReducer";
-import {TodoGroup} from "./components/TodoGroup";
 import {TodoContext} from "./contexts/TodoContext";
 import {createBrowserRouter, NavLink, Outlet, RouterProvider} from "react-router";
 import {ErrorPage} from "./ErrorPage/ErrorPage";
+import {HomePage} from "./page/HomePage";
 
 export const initState = [];
 
@@ -32,7 +32,7 @@ let routers = createBrowserRouter([
         children:[
             {
                 path: "/",
-                element: <TodoGroup />
+                element: <HomePage />
             }
         ]
     }
