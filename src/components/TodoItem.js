@@ -8,14 +8,17 @@ import {api} from "../api/mockApi";
 export function TodoItem(props) {
     const {dispatch} = useContext(TodoContext);
     const navigate = useNavigate();
-
     const {todo, showDetailBtn = true} = props;
 
     function makeAsDone() {
-        dispatch({
-            type: "TOGGLE_TODO",
-            payload: {id: props.todo.id}
-        })
+        // PUT api/{id} {done: !todo.done}
+        api.put("/todos/" + props.todo.id, {done: !props.todo.done})
+            .then(res => res.data)
+            .then(todo =>  dispatch({
+                type: "TOGGLE_TODO",
+                payload: {id: props.todo.id},
+            }));
+
     }
 
     function deleteTodo() {

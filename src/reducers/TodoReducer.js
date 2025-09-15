@@ -16,7 +16,6 @@ export function todoReducer(state, action) {
                         done: !value.done
                     };
                 }
-
                 return value
             })
         case "LOAD_TODOS":
