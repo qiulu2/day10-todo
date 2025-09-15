@@ -28,6 +28,16 @@ export function DefaultLayout() {
                                 DoneList
                             </NavLink>
                         </li>
+                        <li>
+                            <NavLink
+                                to="/about"
+                                className={({isActive}) =>
+                                    `navLink ${isActive ? "navLink--active" : ""}`
+                                }
+                            >
+                                About
+                            </NavLink>
+                        </li>
                     </ul>
                 </nav>
             </header>

@@ -1,4 +1,3 @@
-// TODO errorPage
 import {useRouteError} from "react-router";
 
 export function ErrorPage() {

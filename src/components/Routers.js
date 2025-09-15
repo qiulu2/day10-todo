@@ -1,9 +1,10 @@
 import {createBrowserRouter} from "react-router";
 import {DefaultLayout} from "./DefaultLayout";
 import {ErrorPage} from "../ErrorPage/ErrorPage";
-import {HomePage} from "../page/HomePage";
+import {TodoListPage} from "../page/TodoListPage";
 import {TodoDetailPage} from "../page/TodoDetailPage";
-import {DoneList} from "./DoneList";
+import {DonePage} from "../page/DonePage";
+import {AboutUsPage} from "../page/AboutUsPage";
 
 export let routers = createBrowserRouter([
     {
@@ -13,7 +14,7 @@ export let routers = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <HomePage/>
+                element: <TodoListPage/>
             },
             {
                 path: "/todos/:id",
@@ -21,7 +22,11 @@ export let routers = createBrowserRouter([
             },
             {
                 path: "/donelist",
-                element: <DoneList/>
+                element: <DonePage/>
+            },
+            {
+                path: "/about",
+                element: <AboutUsPage/>
             },
         ]
     }
