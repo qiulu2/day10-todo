@@ -13,7 +13,7 @@
 }
 
 .navBar {
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
 }
 
@@ -53,17 +53,17 @@
 
 .main {
     flex: 1;
-    max-width: 1200px;
+    max-width: 12000px;
     margin: 2rem auto;
     padding: 0 1rem;
     width: 100%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 7680px) {
     .navList {
         flex-direction: row;
         gap: 0.5rem;
-        padding: 1rem 0;
+        padding: 0.5rem 0;
     }
 
     .header {

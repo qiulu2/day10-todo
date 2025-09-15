@@ -8,14 +8,14 @@ export function TodoDetailPage() {
     const {id} = useParams()
     const {state} = useContext(TodoContext)
     console.log(state)
-    const todo = state.filter((todo) => todo.id === parseInt(id))
-    if (state.length === 0) {
-
+    const todo = state.filter((todo) => todo.id === id)
+    if (todo.length === 0) {
         return <div>Not Found Todo.</div>
     }
+
+    console.log(todo)
     return <div>
-        {JSON.stringify(todo)}
-        <TodoItem todo={todo[0]} index={id}/>
+        <TodoItem todo={todo[0]} index={id} shouwDetailBtn={false}/>
     </div>;
 
 }

@@ -1,12 +1,14 @@
 import {useContext} from "react";
 import {TodoContext} from "../contexts/TodoContext";
+import {useNavigate} from "react-router";
 
-function detailTodo() {
 
-}
 
 export function TodoItem(props) {
     const {dispatch} = useContext(TodoContext);
+    const navigate = useNavigate();
+
+    const {todo, shouwDetailBtn = true} = props;
 
     function makeAsDone() {
         dispatch({
@@ -22,6 +24,10 @@ export function TodoItem(props) {
         })
     }
 
+    function detailTodo() {
+        navigate(`/todos/${props.todo.id}`)
+    }
+
     return <div className={"todo-item"}>
         <span className={
             props.todo.done ? "todo-done" : ""}
@@ -29,6 +35,9 @@ export function TodoItem(props) {
         {props.todo.text}
         </span>
         <button className="delete-btn" onClick={deleteTodo}>❌</button>
-        <button className="detail-btn" onClick={detailTodo}>👀</button>
+        {
+            shouwDetailBtn &&(<button className="detail-btn" onClick={detailTodo}>👀</button>)
+        }
+
     </div>
 }
