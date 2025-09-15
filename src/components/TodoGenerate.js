@@ -1,6 +1,8 @@
 import {useContext, useState} from "react";
 import {TodoContext} from "../contexts/TodoContext";
 import {useTodoService} from "../useTodoService";
+import {Input, Button, Space} from 'antd';
+import {PlusOutlined} from '@ant-design/icons';
 
 export function TodoGenerate() {
     const {dispatch} = useContext(TodoContext);
@@ -23,22 +25,27 @@ export function TodoGenerate() {
 
     function handleKeyDown(e) {
         if (e.key === 'Enter') {
-            handleAddTodo();
+            handleAddTodo(e);
         }
     }
 
     return (
-        <div className="input-section">
-            <input
-                type="text"
+        <Space.Compact style={{width: '100%'}}>
+            <Input
+                placeholder="Add somethings..."
                 value={inputText}
                 onChange={handleInputChange}
-                onKeyDown={handleKeyDown}
-                className="todo-input"
+                onPressEnter={handleKeyDown}
+                size="large"
             />
-            <button onClick={handleAddTodo} className="add-btn">
+            <Button
+                type="primary"
+                icon={<PlusOutlined />}
+                onClick={handleAddTodo}
+                size="large"
+            >
                 Add
-            </button>
-        </div>
+            </Button>
+        </Space.Compact>
     );
 }
