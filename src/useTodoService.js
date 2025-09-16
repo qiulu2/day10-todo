@@ -2,7 +2,7 @@ import {api} from "./api/mockApi";
 
 export function useTodoService() {
     const updateDone = (props) => {
-        return api.put("/todos/" + props.todo.id, {done: !props.todo.done});
+        return api.patch("/todos/" + props.todo.id, {done: !props.todo.done});
     }
 
     const updateTodo = (id, todoData) => {
